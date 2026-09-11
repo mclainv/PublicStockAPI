@@ -1,15 +1,19 @@
 import { Line, LineChart, Tooltip, XAxis, YAxis } from 'recharts';
 import { useState } from 'react';
-const tooltipStyle = {
-    background: '#ffffff',
-    border: '1px solid #ccc',
-    borderRadius: 0,
-    boxShadow: 'none',
-    color: '#171717',
-    fontFamily: 'Inter, ui-sans-serif, system-ui, sans-serif',
-    fontSize: '0.875rem',
-    letterSpacing: '0.01em',
-};
+import '../styles/graph.css';
+
+function ChartTooltip({ active, payload, label }) {
+    if (!active || !payload?.length) return null;
+    const row = payload[0].payload;
+    return (
+        <div className="tooltipStyle">
+            <div className="tooltipLabel">{label}</div>
+            <div className="tooltipItemStyle">High average : {Number(row.highAverage).toFixed(2)}</div>
+            <div className="tooltipItemStyle">Low average : {Number(row.lowAverage).toFixed(2)}</div>
+            <div className="tooltipItemStyle">Volume : {Math.round(row.volume).toLocaleString('en-US')}</div>
+        </div>
+    );
+}
 
 export default function Graph({ symbol, data, volume }) {
     const[ volumeView, setVolumeView ] = useState(false);
@@ -39,8 +43,7 @@ export default function Graph({ symbol, data, volume }) {
                     <XAxis dataKey="date" minTickGap={24} stroke="#ccc" tick={{ fill: '#888', fontSize: 12 }} />
                     <YAxis domain={['auto', 'auto']} stroke="#ccc" tick={{ fill: '#888', fontSize: 12 }} width={56} />
                     <Tooltip
-                        contentStyle={tooltipStyle}
-                        formatter={(value) => Number(value).toFixed(2)}
+                        content={ChartTooltip}
                     />
                     <Line type="linear" dataKey="volume" name="Volume" stroke="#171717" strokeWidth={1.5} dot={false} activeDot={{ r: 4 }} />
                 </LineChart>
@@ -56,7 +59,7 @@ export default function Graph({ symbol, data, volume }) {
                         <XAxis dataKey="date" minTickGap={24} stroke="#ccc" tick={{ fill: '#888', fontSize: 12 }} />
                         <YAxis domain={['auto', 'auto']} stroke="#ccc" tick={{ fill: '#888', fontSize: 12 }} width={56} />
                         <Tooltip
-                            content={<CustomTooltip />}
+                            content={ChartTooltip}
                         />
                         <Line type="linear" dataKey="highAverage" name="High average" stroke="#171717" strokeWidth={1.5} dot={false} activeDot={{ r: 4 }} />
                         <Line type="linear" dataKey="lowAverage" name="Low average" stroke="#888" strokeWidth={1.5} dot={false} activeDot={{ r: 4 }} />

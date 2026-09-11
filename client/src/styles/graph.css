@@ -1,0 +1,23 @@
+.tooltipStyle {
+    margin: 0;
+    padding: 10px;
+    background: #ffffff;
+    border: 1px solid #ccc;
+    border-radius: 0;
+    box-shadow: none;
+    color: #171717;
+    font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+    font-size: 0.875rem;
+    letter-spacing: 0.01em;
+    white-space: nowrap;
+  }
+.tooltipLabel {
+    font-size: 12px;
+    font-weight: 800;
+    color: #171717;
+    margin-bottom: 4px;
+}
+.tooltipItemStyle {
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
