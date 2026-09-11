@@ -11,8 +11,8 @@ export default function averageDayData(dataByDay) {
         }, {low: 0, high: 0});
         averageData.push({
             date,
-            low: low / (day.length - missingLow),
-            high: high / (day.length - missingHigh)
+            lowAverage: low / (day.length - missingLow),
+            highAverage: high / (day.length - missingHigh)
         })
     });
     return averageData;
