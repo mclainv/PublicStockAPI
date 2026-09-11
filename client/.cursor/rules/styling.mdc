@@ -1,0 +1,12 @@
+---
+description: Default styling conventions for this project
+alwaysApply: true
+---
+
+When the user asks to use the "default stylesheet" or "default style":
+
+- Treat `src/styles/default.css` as the canonical style reference.
+- Inspect that file before creating new UI.
+- Reuse its existing variables, spacing, typography, colors, border radii, and component patterns.
+- Prefer existing classes and patterns over inventing new ones.
+- Do not introduce a new design system unless explicitly asked.
