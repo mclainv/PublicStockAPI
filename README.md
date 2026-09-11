@@ -9,6 +9,7 @@
 ## Running
 
 ```bash
+git clone https://github.com/mclainv/PublicStockAPI && cd PublicStockAPI
 cd server && npm install && npm run dev   # http://localhost:3001
 cd client && npm install && npm run dev   # http://localhost:5173
 ```
