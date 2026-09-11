@@ -15,7 +15,7 @@ function ChartTooltip({ active, payload, label }) {
     );
 }
 
-export default function Graph({ symbol, data, volume }) {
+export default function Graph({ symbol, data }) {
     const[ volumeView, setVolumeView ] = useState(false);
     return (
         <div className="graph-frame">
